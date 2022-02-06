@@ -25,14 +25,15 @@ RUN rm -rf /etc/nginx/sites-available/default && rm -rf /etc/nginx/sites-enabled
 ADD default.conf /etc/nginx/sites-available/default.conf
 
 ADD www.conf /etc/php/7.3/fpm/pool.d/www.conf
+
 ADD php.ini /etc/php/7.3/fpm/php.ini
+
+ADD nginx.conf /etc/nginx/nginx.conf
 
 RUN ln -s /etc/nginx/sites-available/default.conf /etc/nginx/sites-enabled/default.conf
 
 WORKDIR /usr/share/nginx/html/
 
 CMD ["/bin/bash", "-c", "/usr/sbin/service php7.3-fpm start && nginx -g 'daemon off;'"]
-
-#CMD ["nginx", "-g", "daemon off;"]
 
 EXPOSE 80

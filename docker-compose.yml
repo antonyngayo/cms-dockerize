@@ -8,4 +8,4 @@ services:
       - 83:80 # change ip if required
     volumes:
       - ./nginx_logs:/var/log/nginx/
-      - ./cms:/usr/share/nginx/html/
+      - /opt/cms:/usr/share/nginx/html/
